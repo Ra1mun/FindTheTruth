@@ -9,7 +9,7 @@ public class CameraFollower : MonoBehaviour
 
     private Vector3 velocity;
     
-    private void Update()
+    private void FixedUpdate()
     {
         var targetPosition = new Vector3(_target.position.x, _target.position.y, -10);
         transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, 0.18f, 40);

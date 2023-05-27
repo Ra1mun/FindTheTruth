@@ -1,30 +1,38 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using Zenject;
 
 public class ItemHighlightHandler : MonoBehaviour
 {
     [SerializeField] private Panel _panel;
-    [Inject] private ItemDetector _itemDetector;
-    
+    [Inject] private MouseInput _mouseInput;
+    [Inject] private Camera _cam;
+
     private void OnEnable()
     {
-        _itemDetector.OnItemBrought += OnItemBrought;
+        _mouseInput.OnInput += ItemHighlight;
     }
 
-    private void OnItemBrought(IItem item)
+    private void ItemHighlight(Vector2 position)
     {
-        if (item == GetComponent<IItem>())
+        var worldPosition = _cam.ScreenToWorldPoint(position);
+        var hit = Physics2D.Raycast(worldPosition, Vector2.down);
+        
+        if (hit.collider != null)
         {
-            _panel.ShowPanel();
-        }
-        else
-        {
-            _panel.ClosePanel();
+            if (hit.collider.GetComponent<IItem>() == GetComponent<IItem>())
+            {
+                _panel.ShowPanel();
+            }
+            else
+            {
+                _panel.ClosePanel();
+            }
         }
     }
 
     private void OnDisable()
     {
-        _itemDetector.OnItemBrought -= OnItemBrought;
+        _mouseInput.OnInput -= ItemHighlight;
     }
 }
