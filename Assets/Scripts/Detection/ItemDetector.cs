@@ -7,8 +7,8 @@ public class ItemDetector : IInitializable, IDisposable
     private readonly MouseInput _input;
     private readonly Camera _cam;
 
-    public event Action<IItem> OnItemClicked;
-    
+    public event Action<IItem> OnItemBrought;
+
     public ItemDetector(MouseInput input, Camera cam)
     {
         _input = input;
@@ -20,6 +20,7 @@ public class ItemDetector : IInitializable, IDisposable
         _input.OnInput += OnInput;
     }
     
+    
     private void OnInput(Vector2 position)
     {
         var worldPosition = _cam.ScreenToWorldPoint(position);
@@ -29,10 +30,11 @@ public class ItemDetector : IInitializable, IDisposable
         {
             if (hit.collider.TryGetComponent<IItem>(out var item))
             {
-                OnItemClicked?.Invoke(item);
+                OnItemBrought?.Invoke(item);
             }
         }
     }
+    
     
     public void Dispose()
     {

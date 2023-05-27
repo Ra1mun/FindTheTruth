@@ -3,17 +3,19 @@
 using UnityEngine;
 using Zenject;
 
-public class PlayerMovementHandler : IInitializable, IDisposable
+public class MovementHandler : IInitializable, IDisposable
 {
     private PlayerMovement _playerMovement;
+    private PlayerAnimation _playerAnimation;
     private KeyboardInput _input;
 
-    public PlayerMovementHandler(PlayerMovement playerMovement, KeyboardInput input, Player player)
+    public MovementHandler(PlayerMovement playerMovement, PlayerAnimation playerAnimation, KeyboardInput input)
     {
-        _input = input;
         _playerMovement = playerMovement;
+        _playerAnimation = playerAnimation;
+        _input = input;
     }
-    
+
     public void Initialize()
     {
         _input.OnInput += OnInput;
@@ -27,6 +29,7 @@ public class PlayerMovementHandler : IInitializable, IDisposable
     private void OnInput(Vector2 direction)
     {
         _playerMovement.Move(direction);
+        _playerAnimation.AnimateMove(direction);
     }
     
     public void OnDisableInput()

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Player
   m_EditorClassIdentifier: 
   characterPhoto: {fileID: 0}
-  characterName: 
+  characterName: "\u0418\u0433\u0440\u043E\u043A"

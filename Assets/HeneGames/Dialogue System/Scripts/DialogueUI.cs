@@ -38,14 +38,13 @@ namespace HeneGames.DialogueSystem
 
         [Header("Next sentence input")]
         public KeyCode actionInput = KeyCode.Space;
-
-        private void Start()
+        private void OnEnable()
         {
             //Hide dialogue and interaction UI at start
             dialogueWindow.SetActive(false);
             interactionUI.SetActive(false);
         }
-
+        
         private void Update()
         {
             //Continue only if we have dialogue
