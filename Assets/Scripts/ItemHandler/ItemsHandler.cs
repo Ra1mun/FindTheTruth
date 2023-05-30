@@ -18,12 +18,10 @@ public class ItemsHandler
 
     private void OnInteracted(InspectionItem item)
     {
-        
         OnItemInspection?.Invoke(item);
-        Remove(item);
     }
 
-    private void Remove(InspectionItem item)
+    public void Remove(InspectionItem item)
     {
         item.OnInteracted -= OnInteracted;
         _inspectionItems.Remove(item);

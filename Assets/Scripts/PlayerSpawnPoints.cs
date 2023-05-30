@@ -5,24 +5,40 @@ using UnityEngine;
 
 public class PlayerSpawnPoints : MonoBehaviour
 {
-    private const int Lobby = 0;
-    private const int Scene2 = 1;
-    private const int Scene3 = 2;
+    [SerializeField] private Transform SamRoom;
+    [SerializeField] private Transform Lobby;
+    [SerializeField] private Transform Lab;
+    [SerializeField] private Transform KristapherRoom;
     
-    [SerializeField] private List<Transform> _spawnPoints = new List<Transform>();
+    
     [SerializeField] private Transform _defualtPoint;
     public Vector3 GetPosition(string lastScene)
     {
+        Transform position;
         switch (lastScene)
         {
+            case "SamRoom":
+                position = SamRoom;
+                break;
             case "Lobby":
-                return _spawnPoints[Lobby].position;
-            case "Scene2":
-                return _spawnPoints[Scene2].position;
-            case "Scene3":
-                return _spawnPoints[Scene3].position;
+                position = Lobby;
+                break;
+            case "Lab":
+                position = Lab;
+                break;
+            case "KristapherRoom":
+                position = KristapherRoom;
+                break;
             default:
-                return _defualtPoint.position;
+                position = _defualtPoint;
+                break;
         }
+
+        if (position == null)
+        {
+            position = _defualtPoint;
+        }
+
+        return position.position;
     }
 }

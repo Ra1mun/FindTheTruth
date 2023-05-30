@@ -13,6 +13,5 @@ public class SceneEntry : MonoBehaviour
         }
         DataHolder.Player = _player;
         DataHolder.LastScene = SceneManager.GetActiveScene().name;
-        Debug.Log(DataHolder.LastScene);
     }
 }

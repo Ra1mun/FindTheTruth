@@ -2,5 +2,6 @@
 {
     Lobby,
     SamRoom,
-    Scene3,
+    Lab,
+    KristapherRoom,
 }

@@ -19,7 +19,7 @@ public class PlayerInstaller : MonoInstaller
         var playerInstance =
             Container.InstantiatePrefabForComponent<Player>(_player, _spawnPoints.GetPosition(DataHolder.LastScene),
                 Quaternion.identity, null);
-        Debug.Log(DataHolder.LastScene);
+
         Container.Bind<Player>().FromInstance(playerInstance).AsSingle();
     }
 

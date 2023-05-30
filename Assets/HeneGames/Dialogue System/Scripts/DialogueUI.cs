@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Zenject;
 
 namespace HeneGames.DialogueSystem
 {
@@ -35,7 +36,9 @@ namespace HeneGames.DialogueSystem
         [SerializeField] private TextMeshProUGUI messageText;
         [SerializeField] private GameObject dialogueWindow;
         [SerializeField] private GameObject interactionUI;
-
+        
+        [Inject] private InputHandler _input;
+        
         [Header("Next sentence input")]
         public KeyCode actionInput = KeyCode.Space;
         private void OnEnable()
@@ -60,6 +63,7 @@ namespace HeneGames.DialogueSystem
                 //If last sentence remove current dialogue manager
                 if(lastSentence)
                 {
+                    _input.EnableInput();
                     currentDialogueManager = null;
                 }
             }
@@ -67,6 +71,7 @@ namespace HeneGames.DialogueSystem
 
         public void StartDialogue(DialogueManager _dialogueManager)
         {
+            _input.DisableInput();
             //Store dialogue manager
             currentDialogueManager = _dialogueManager;
 

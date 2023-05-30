@@ -8,6 +8,7 @@ public static class Constants
     {
         [ScenesName.Lobby] = "Lobby",
         [ScenesName.SamRoom] = "SamRoom",
-        [ScenesName.Scene3] = "Scene3",
+        [ScenesName.Lab] = "Lab",
+        [ScenesName.KristapherRoom] = "KristapherRoom"
     };
 }

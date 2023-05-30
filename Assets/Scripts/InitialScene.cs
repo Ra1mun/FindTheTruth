@@ -1,5 +1,6 @@
 using System;
 using HeneGames.DialogueSystem;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Playables;
 using Zenject;
@@ -17,7 +18,6 @@ public class InitialScene : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        _inputHandler.DisableInput();
     }
 
     private void Update()
@@ -37,7 +37,7 @@ public class InitialScene : MonoBehaviour
 
     public void EndDialogue()
     {
-        _inputHandler.EnableInput();
+        DataHolder.GameStart = true;
         Destroy(gameObject);
     }
 }
