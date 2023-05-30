@@ -3,8 +3,6 @@ using Zenject;
 
 public class ItemInstaller : MonoInstaller
 {
-    [SerializeField] private InspectionItemsHandler _inspectionItemsHandler;
-    
     public override void InstallBindings()
     {
         BindDetection();
@@ -17,7 +15,7 @@ public class ItemInstaller : MonoInstaller
 
     private void BindItemHandler()
     {
-        Container.Bind<InspectionItemsHandler>().FromInstance(_inspectionItemsHandler).AsSingle();
+        Container.Bind<ItemsHandler>().FromNew().AsSingle();
         Container.BindInterfacesAndSelfTo<InspectionHandler>().FromNew().AsSingle();
     }
     

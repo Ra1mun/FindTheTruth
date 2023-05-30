@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Example/ExampleScene.unity
+    path: Assets/Scenes/Scenes/SamRoom.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Scenes/Lobby.unity
+    guid: 51968c740c216444c9edb1eaa3f349e9
+  - enabled: 1
+    path: Assets/Scenes/Scenes/Scene3.unity
+    guid: 57df339b9de41d441af46124eafc029f
   m_configObjects: {}

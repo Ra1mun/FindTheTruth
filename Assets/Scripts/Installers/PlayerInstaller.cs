@@ -1,24 +1,26 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Zenject;
 
 public class PlayerInstaller : MonoInstaller
 {
     [SerializeField] private Player _player;
-
-    [SerializeField] private PlayerMovement _playerMovement;
-    [SerializeField] private PlayerAnimation _playerAnimation;
+    [SerializeField] private PlayerSpawnPoints _spawnPoints;
     public override void InstallBindings()
     {
         BindInstance();
         BindInput();
         BindMovementSystem();
+        
     }
     
     private void BindInstance()
     {
-        Container.Bind<Player>().FromInstance(_player).AsSingle();
-        Container.Bind<PlayerMovement>().FromInstance(_playerMovement).AsSingle();
-        Container.Bind<PlayerAnimation>().FromInstance(_playerAnimation).AsSingle();
+        var playerInstance =
+            Container.InstantiatePrefabForComponent<Player>(_player, _spawnPoints.GetPosition(DataHolder.LastScene),
+                Quaternion.identity, null);
+        Debug.Log(DataHolder.LastScene);
+        Container.Bind<Player>().FromInstance(playerInstance).AsSingle();
     }
 
     private void BindInput()

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Playables;
 using Zenject;
 
-public class InitialDialogue : MonoBehaviour
+public class InitialScene : MonoBehaviour
 {
     [SerializeField] private PlayableDirector _director;
     private DialogueManager _dialogueManager;
@@ -13,6 +13,10 @@ public class InitialDialogue : MonoBehaviour
 
     private void Start()
     {
+        if (DataHolder.GameStart)
+        {
+            Destroy(gameObject);
+        }
         _inputHandler.DisableInput();
     }
 
@@ -31,7 +35,7 @@ public class InitialDialogue : MonoBehaviour
         DialogueUI.instance.StartDialogue(_dialogueManager);
     }
 
-    public void Destroy()
+    public void EndDialogue()
     {
         _inputHandler.EnableInput();
         Destroy(gameObject);

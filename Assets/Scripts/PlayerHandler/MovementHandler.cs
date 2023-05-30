@@ -5,14 +5,12 @@ using Zenject;
 
 public class MovementHandler : IInitializable, IDisposable
 {
-    private PlayerMovement _playerMovement;
-    private PlayerAnimation _playerAnimation;
+    private Player _player;
     private KeyboardInput _input;
 
-    public MovementHandler(PlayerMovement playerMovement, PlayerAnimation playerAnimation, KeyboardInput input)
+    public MovementHandler(Player player, KeyboardInput input)
     {
-        _playerMovement = playerMovement;
-        _playerAnimation = playerAnimation;
+        _player = player;
         _input = input;
     }
 
@@ -28,8 +26,7 @@ public class MovementHandler : IInitializable, IDisposable
 
     private void OnInput(Vector2 direction)
     {
-        _playerMovement.Move(direction);
-        _playerAnimation.AnimateMove(direction);
+        _player.InitializeDirection(direction);
     }
     
     public void OnDisableInput()

@@ -3,18 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-public class InspectionItemsHandler : MonoBehaviour
+public class ItemsHandler
 {
-    [SerializeField] private List<InspectionItem> _inspectionItems;
+    private List<InspectionItem> _inspectionItems = new List<InspectionItem>();
     public event Action<InspectionItem> OnItemInspection;
 
 
-    public void OnEnable()
+    public void Add(InspectionItem item)
     {
-        foreach (var item in _inspectionItems)
-        {
-            item.OnInteracted += OnInteracted;
-        }
+        _inspectionItems.Add(item);
+
+        item.OnInteracted += OnInteracted;
     }
 
     private void OnInteracted(InspectionItem item)

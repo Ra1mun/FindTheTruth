@@ -5,22 +5,22 @@ using Zenject;
 public class InspectionHandler : IInitializable, IDisposable
 {
     private readonly SpriteHandler _spriteHandler;
-    private readonly InspectionItemsHandler _inspectionItemsHandler;
+    private readonly ItemsHandler _itemsHandler;
 
     public event Action OnInspectionItem;
 
-    public InspectionHandler(SpriteHandler spriteHandler, InspectionItemsHandler inspectionItemsHandler)
+    public InspectionHandler(SpriteHandler spriteHandler, ItemsHandler itemsHandler)
     {
         _spriteHandler = spriteHandler;
-        _inspectionItemsHandler = inspectionItemsHandler;
+        _itemsHandler = itemsHandler;
     }
 
     public void Initialize()
     {
-        _inspectionItemsHandler.OnItemInspection += OnItemInspection;
+        _itemsHandler.OnItemInspection += OnItem;
     }
 
-    private void OnItemInspection(InspectionItem item)
+    private void OnItem(InspectionItem item)
     {
         _spriteHandler.SetSprite(item.Sprite);
         OnInspectionItem?.Invoke();
@@ -28,6 +28,6 @@ public class InspectionHandler : IInitializable, IDisposable
     
     public void Dispose()
     {
-        _inspectionItemsHandler.OnItemInspection -= OnItemInspection;
+        _itemsHandler.OnItemInspection -= OnItem;
     }
 }
