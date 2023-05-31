@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9f4a308dae7ffd048a8b0eb8d5ae4a02, type: 3}
-  m_Name: Zefir
+  m_Name: Unknown
   m_EditorClassIdentifier: 
-  characterPhoto: {fileID: 21300000, guid: e9739639f9d6bf94887f24a5a95ffa9c, type: 3}
-  characterName: "\u0417\u0435\u0444\u0438\u0440"
+  characterPhoto: {fileID: 21300000, guid: 9c12e861949e3294795c5c48f0d2d0e3, type: 3}
+  characterName: "\u041D\u0435\u0438\u0437\u0432\u0435\u0441\u0442\u043D\u044B\u0439"
