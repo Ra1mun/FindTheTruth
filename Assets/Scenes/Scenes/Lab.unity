@@ -2495,7 +2495,7 @@ MonoBehaviour:
       m_Calls: []
   triggerState: 0
   sentences:
-  - emotion: {fileID: 0}
+  - emotion: {fileID: 21300000, guid: 3d91ffd6e4f2be3498ca2a4f466a9f60, type: 3}
     dialogueCharacter: {fileID: 11400000, guid: 74ab73cef5c550d4f826086eeb7b211e, type: 2}
     sentence: "\u041C\u044F\u0443"
     sentenceSound: {fileID: 0}
