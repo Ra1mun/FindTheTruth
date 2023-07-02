@@ -213,7 +213,9 @@ namespace HeneGames.DialogueSystem
                 StopDialogue();
 
                 lastSentence = true;
-
+                
+                endDialogueEvent.Invoke();
+                
                 return;
             }
 
@@ -238,8 +240,7 @@ namespace HeneGames.DialogueSystem
                 dialogueTrigger.endDialogueEvent.Invoke();
             }
 
-            endDialogueEvent.Invoke();
-
+            
             //Hide dialogue UI
             DialogueUI.instance.ClearText();
 
