@@ -12,10 +12,12 @@ public class InitialScene : MonoBehaviour
     [Inject] private InputHandler _inputHandler;
     private bool fix = false;
 
-    private void Start()
+    private void Awake()
     {
+        Debug.Log(DataHolder.GameStart);
         if (DataHolder.GameStart)
         {
+            Destroy(_director.gameObject);
             Destroy(gameObject);
         }
     }
@@ -38,6 +40,7 @@ public class InitialScene : MonoBehaviour
     public void EndDialogue()
     {
         DataHolder.GameStart = true;
+        Destroy(_director.gameObject);
         Destroy(gameObject);
     }
 }

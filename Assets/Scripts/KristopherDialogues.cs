@@ -16,5 +16,10 @@ public class KristopherDialogues : MonoBehaviour
             _secondDialogue.gameObject.SetActive(true);
             _firstDialogue.gameObject.SetActive(false);
         }
+        else
+        {
+            _firstDialogue.gameObject.SetActive(true);
+            _secondDialogue.gameObject.SetActive(false);
+        }
     }
 }

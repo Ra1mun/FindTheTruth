@@ -8,8 +8,9 @@ public class InspectionItem : MonoBehaviour, IItem
     [SerializeField] private string _name;
     [SerializeField] private Sprite _sprite;
     [SerializeField] private bool DestroyAfterClick;
-    public string Name { get; set; }
-    
+    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private AudioClip _audioClip;
+
     public Sprite Sprite => _sprite;
     
     public event Action<InspectionItem> OnInteracted;
@@ -17,12 +18,20 @@ public class InspectionItem : MonoBehaviour, IItem
     private void OnEnable()
     {
         _itemsHandler.Add(this);
+        if (_audioSource != null)
+        {
+            _audioSource.clip = _audioClip;
+        }
     }
 
     public void Interact(Player player)
     {
         OnInteracted?.Invoke(this);
 
+        if (_audioSource != null && _audioSource.clip != null)
+        {
+            _audioSource.Play();
+        }
         if (!player.IsItemInInventory(_name) && DestroyAfterClick)
         {
             player.AddItemInInventory(_name);
