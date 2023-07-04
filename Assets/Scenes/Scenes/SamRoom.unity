@@ -530,6 +530,7 @@ GameObject:
   - component: {fileID: 264993879}
   - component: {fileID: 264993878}
   - component: {fileID: 264993880}
+  - component: {fileID: 264993881}
   m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
@@ -684,6 +685,46 @@ EdgeCollider2D:
   - {x: -8.505946, y: -0.8225187}
   - {x: -10.087235, y: -0.8395122}
   - {x: -11.4258585, y: -0.7866411}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
+--- !u!68 &264993881
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 264993876}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: 6.9063835, y: -1.8652934}
+  - {x: 6.891147, y: -2.3679204}
+  - {x: 1.9236723, y: -2.3640013}
+  - {x: 1.9298375, y: -1.8598682}
+  - {x: 2.1802464, y: -1.8493301}
+  - {x: 2.1717525, y: -1.6943468}
+  - {x: 2.6686702, y: -1.6908227}
+  - {x: 2.6584377, y: -1.8393441}
+  - {x: 3.3738012, y: -1.8239589}
+  - {x: 3.406787, y: -1.4824239}
+  - {x: 5.323559, y: -1.4906514}
+  - {x: 5.346648, y: -1.7561725}
+  - {x: 5.666628, y: -1.8302485}
+  - {x: 5.7761745, y: -1.7749997}
+  - {x: 5.8848834, y: -1.8326801}
+  - {x: 6.27321, y: -1.7591966}
+  - {x: 6.356062, y: -1.8689853}
+  - {x: 6.7363644, y: -1.7182745}
+  - {x: 6.9132395, y: -1.8526314}
+  - {x: 6.882488, y: -1.8625491}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -3459,7 +3500,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: -2517370413488547612, guid: 2b7928c148028ce44aa075c1001c8dae, type: 2}
   m_audioClip: {fileID: 8300000, guid: 2f859afc4598f3c46a5cc2f351e17be3, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.43
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0
