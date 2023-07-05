@@ -305,6 +305,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _director: {fileID: 1158106922}
+  _canvasGroup: {fileID: 1000325280}
 --- !u!1 &204546653
 GameObject:
   m_ObjectHideFlags: 0
@@ -1993,6 +1994,7 @@ GameObject:
   - component: {fileID: 959225590}
   - component: {fileID: 959225589}
   - component: {fileID: 959225591}
+  - component: {fileID: 959225592}
   m_Layer: 5
   m_Name: CutSceneImage
   m_TagString: Untagged
@@ -2079,6 +2081,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!225 &959225592
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 959225587}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1000325274
 GameObject:
   m_ObjectHideFlags: 0
@@ -2092,6 +2106,7 @@ GameObject:
   - component: {fileID: 1000325276}
   - component: {fileID: 1000325275}
   - component: {fileID: 1000325279}
+  - component: {fileID: 1000325280}
   m_Layer: 5
   m_Name: PauseButton
   m_TagString: Untagged
@@ -2310,6 +2325,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!225 &1000325280
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000325274}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &1009555743
 GameObject:
   m_ObjectHideFlags: 0

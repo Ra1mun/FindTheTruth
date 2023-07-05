@@ -10,11 +10,10 @@ public class InitialScene : MonoBehaviour
     [SerializeField] private PlayableDirector _director;
     private DialogueManager _dialogueManager;
     [Inject] private InputHandler _inputHandler;
-    private bool fix = false;
+    [SerializeField] private CanvasGroup _canvasGroup;
 
     private void Awake()
     {
-        Debug.Log(DataHolder.GameStart);
         if (DataHolder.GameStart)
         {
             Destroy(_director.gameObject);
@@ -22,17 +21,15 @@ public class InitialScene : MonoBehaviour
         }
     }
 
-    private void Update()
+    private void OnEnable()
     {
-        if (_director.state != PlayState.Playing && !fix)
-        {
-            BeginDialogue();
-            fix = true;
-        }
+        _director.stopped += BeginDialogue;
     }
-    
-    private void BeginDialogue()
+
+    private void BeginDialogue(PlayableDirector director)
     {
+        _canvasGroup.Open();
+        Destroy(director.gameObject);
         _dialogueManager = GetComponent<DialogueManager>();
         DialogueUI.instance.StartDialogue(_dialogueManager);
     }
@@ -40,7 +37,11 @@ public class InitialScene : MonoBehaviour
     public void EndDialogue()
     {
         DataHolder.GameStart = true;
-        Destroy(_director.gameObject);
         Destroy(gameObject);
+    }
+
+    private void OnDisable()
+    {
+        _director.stopped -= BeginDialogue;
     }
 }
